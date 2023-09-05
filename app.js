@@ -1,4 +1,43 @@
-const http = require('http')
+const path = require('path')
+const express = require('express')
+const app = express()
+const port = 3000
+const hostname = '127.0.0.1'
+
+
+app.get('/', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'index.html'))
+})
+
+app.get('/about', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'about.html'))
+})
+
+app.get('/contact', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'contact.html'))
+})
+
+app.get('/users/:userID/movies/:moviesID', (req, res) => {
+    res.send (
+        `
+           <h1> User Name : ${req.params.userID}</h1>
+           <h1> Film Name : ${req.params.moviesID}</h1>
+         `
+    )
+})
+
+
+
+
+
+
+
+app.listen(port, hostname, () => {
+    console.log(` Server läuft auf, http://${hostname}:${port}/`)
+})
+
+
+/* const http = require('http')
 const fs = require('fs')
 
 const hostname = '127.0.0.1'
@@ -15,7 +54,7 @@ const server = http.createServer((req, res) => {
     res.setHeader('Content-Type', 'text/plain')
     res.end('Hello NODE.JS') */
 
-    if (req.url === '/') {
+    /* if (req.url === '/') {
         return res.end(indexPage)
     }else if (req.url === '/about'){
         return res.end(aboutPage)
@@ -29,4 +68,9 @@ const server = http.createServer((req, res) => {
 
 server.listen(port, hostname, () => {
     console.log(` Server läuft auf, http://${hostname}:${port}/`)
-})
+}) */ 
+
+
+
+
+// mongodb+srv://sabriyecbc:hvqEncsFDWgAtOjP@sabriye.i22pwid.mongodb.net/
