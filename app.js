@@ -17,6 +17,12 @@ app.get('/about', (req, res) => {
 app.get('/blog', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'sites/blog.html'))
 })
+app.get('/home', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'sites/index.html'))
+})
+app.get('/contact', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'sites/blog.html'))
+})
 
 
 
